@@ -1,0 +1,21 @@
+15:49:12 **** Incremental Build of configuration Debug for project example1 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'UART_Transmit':
+../Core/Src/main.c:227:36: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+  227 |         HAL_UART_Transmit(&huart1, (uint8_t *)data, sizeof(data), HAL_MAX_DELAY);
+      |                                    ^
+arm-none-eabi-gcc -o "example1.elf" @"objects.list"   -mcpu=cortex-m0plus -T"D:\STM32\Workspace\example1\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="example1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: example1.elf
+ 
+arm-none-eabi-size  example1.elf 
+arm-none-eabi-objdump -h -S example1.elf  > "example1.list"
+   text	   data	    bss	    dec	    hex	filename
+  14960	    112	   2096	  17168	   4310	example1.elf
+Finished building: default.size.stdout
+ 
+Finished building: example1.list
+ 
+
+15:49:13 Build Finished. 0 errors, 1 warnings. (took 913ms)
+

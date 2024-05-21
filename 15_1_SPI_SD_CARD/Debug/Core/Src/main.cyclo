@@ -1,0 +1,10 @@
+../Core/Src/main.c:84:6:send_uart	1
+../Core/Src/main.c:91:5:bufsize	2
+../Core/Src/main.c:99:6:bufclear	2
+../Core/Src/main.c:111:5:main	3
+../Core/Src/main.c:362:6:SystemClock_Config	4
+../Core/Src/main.c:415:13:MX_RTC_Init	4
+../Core/Src/main.c:479:13:MX_SPI2_Init	2
+../Core/Src/main.c:517:13:MX_USART1_UART_Init	2
+../Core/Src/main.c:552:13:MX_GPIO_Init	1
+../Core/Src/main.c:585:6:Error_Handler	1

@@ -1,0 +1,10 @@
+12:17:57 **** Incremental Build of configuration Debug for project PWR_STOP_RTC ****
+make -j8 all 
+arm-none-eabi-size  STM32L053C8_Discovery.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6376	     32	   1608	   8016	   1f50	STM32L053C8_Discovery.elf
+Finished building: default.size.stdout
+ 
+
+12:17:58 Build Finished. 0 errors, 0 warnings. (took 324ms)
+

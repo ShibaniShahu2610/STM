@@ -1,0 +1,66 @@
+11:21:35 **** Incremental Build of configuration Debug for project KEYPAD_1 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -I"D:/STM32/Workspace/KEYPAD_1/Drivers/BSP/KEYPAD" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:115:5: error: unknown type name 'Keypad_WiresTypeDef'
+  115 |     Keypad_WiresTypeDef keypadWiring;
+      |     ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:116:17: error: request for member 'IN0_Port' in something not a structure or union
+  116 |     keypadWiring.IN0_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:117:17: error: request for member 'IN1_Port' in something not a structure or union
+  117 |     keypadWiring.IN1_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:118:17: error: request for member 'IN2_Port' in something not a structure or union
+  118 |     keypadWiring.IN2_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:119:17: error: request for member 'IN3_Port' in something not a structure or union
+  119 |     keypadWiring.IN3_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:120:17: error: request for member 'OUT0_Port' in something not a structure or union
+  120 |     keypadWiring.OUT0_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:121:17: error: request for member 'OUT1_Port' in something not a structure or union
+  121 |     keypadWiring.OUT1_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:122:17: error: request for member 'OUT2_Port' in something not a structure or union
+  122 |     keypadWiring.OUT2_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:123:17: error: request for member 'OUT3_Port' in something not a structure or union
+  123 |     keypadWiring.OUT3_Port = GPIOA;
+      |                 ^
+../Core/Src/main.c:124:17: error: request for member 'IN0pin' in something not a structure or union
+  124 |     keypadWiring.IN0pin = R1_PIN;
+      |                 ^
+../Core/Src/main.c:125:17: error: request for member 'IN1pin' in something not a structure or union
+  125 |     keypadWiring.IN1pin = R2_PIN;
+      |                 ^
+../Core/Src/main.c:126:17: error: request for member 'IN2pin' in something not a structure or union
+  126 |     keypadWiring.IN2pin = R3_PIN;
+      |                 ^
+../Core/Src/main.c:127:17: error: request for member 'IN3pin' in something not a structure or union
+  127 |     keypadWiring.IN3pin = R4_PIN;
+      |                 ^
+../Core/Src/main.c:128:17: error: request for member 'OUT0pin' in something not a structure or union
+  128 |     keypadWiring.OUT0pin = C1_PIN;
+      |                 ^
+../Core/Src/main.c:129:17: error: request for member 'OUT1pin' in something not a structure or union
+  129 |     keypadWiring.OUT1pin = C2_PIN;
+      |                 ^
+../Core/Src/main.c:130:17: error: request for member 'OUT2pin' in something not a structure or union
+  130 |     keypadWiring.OUT2pin = C3_PIN;
+      |                 ^
+../Core/Src/main.c:131:17: error: request for member 'OUT3pin' in something not a structure or union
+  131 |     keypadWiring.OUT3pin = C4_PIN;
+      |                 ^
+../Core/Src/main.c:134:5: warning: implicit declaration of function 'Keypad4x4_Init' [-Wimplicit-function-declaration]
+  134 |     Keypad4x4_Init(&keypadWiring);
+      |     ^~~~~~~~~~~~~~
+../Core/Src/main.c:137:11: warning: unused variable 'keys' [-Wunused-variable]
+  137 |      bool keys[16] = {false};
+      |           ^~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+11:21:36 Build Failed. 18 errors, 2 warnings. (took 358ms)
+

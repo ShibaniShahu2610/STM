@@ -1,0 +1,20 @@
+09:29:13 **** Build of configuration Release for project 3_UART ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "3_UART.elf" @"objects.list"   -mcpu=cortex-m0plus -T"D:\STM32\Workspace\3_UART\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3_UART.elf
+ 
+arm-none-eabi-size  3_UART.elf 
+arm-none-eabi-objdump -h -S 3_UART.elf  > "3_UART.list"
+arm-none-eabi-objcopy  -O ihex 3_UART.elf  "3_UART.hex"
+   text	   data	    bss	    dec	    hex	filename
+   9996	    112	   2040	  12148	   2f74	3_UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3_UART.list
+ 
+Finished building: 3_UART.hex
+ 
+
+09:29:16 Build Finished. 0 errors, 0 warnings. (took 2s.127ms)
+

@@ -1,0 +1,10 @@
+10:37:16 **** Incremental Build of configuration Debug for project 4_UART_POLLING_METHOD ****
+make -j8 all 
+arm-none-eabi-size  4_UART_POLLING_METHOD.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10780	     40	   1728	  12548	   3104	4_UART_POLLING_METHOD.elf
+Finished building: default.size.stdout
+ 
+
+10:37:17 Build Finished. 0 errors, 0 warnings. (took 375ms)
+

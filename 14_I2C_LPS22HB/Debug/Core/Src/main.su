@@ -1,0 +1,8 @@
+../Core/Src/main.c:73:10:readPressure	32	static
+../Core/Src/main.c:89:5:main	16	static
+../Core/Src/main.c:139:6:SystemClock_Config	128	static
+../Core/Src/main.c:191:13:MX_I2C1_Init	8	static
+../Core/Src/main.c:239:13:MX_USART1_UART_Init	8	static
+../Core/Src/main.c:274:13:MX_GPIO_Init	16	static
+../Core/Src/main.c:288:6:i2c_scan	8	static
+../Core/Src/main.c:313:6:Error_Handler	8	static,ignoring_inline_asm

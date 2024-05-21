@@ -1,0 +1,10 @@
+12:12:59 **** Incremental Build of configuration Debug for project 17_TIM_SYSTICK ****
+make -j8 all 
+arm-none-eabi-size  17_TIM_SYSTICK.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6336	     20	   1572	   7928	   1ef8	17_TIM_SYSTICK.elf
+Finished building: default.size.stdout
+ 
+
+12:13:00 Build Finished. 0 errors, 0 warnings. (took 567ms)
+

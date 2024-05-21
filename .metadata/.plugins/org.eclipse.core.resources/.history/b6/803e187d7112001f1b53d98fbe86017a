@@ -1,0 +1,77 @@
+#ifndef KEYPAD_H
+#define KEYPAD_H
+
+#include "Key.h"
+#include <stdbool.h>
+
+#ifndef HIGH
+#define HIGH 1
+#endif
+
+#ifndef LOW
+#define LOW 0
+#endif
+
+#ifndef INPUT
+#define INPUT 0
+#endif
+
+#ifndef OUTPUT
+#define OUTPUT 1
+#endif
+
+#ifndef INPUT_PULLUP
+#define INPUT_PULLUP 2
+#endif
+
+#ifndef INPUT_PULLUP
+#define INPUT_PULLUP 0x2
+#endif
+
+#define OPEN LOW
+#define CLOSED HIGH
+
+typedef char KeypadEvent;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+typedef uint8_t byte;
+
+
+typedef struct {
+    byte rows;
+    byte columns;
+} KeypadSize;
+
+#define LIST_MAX 10
+#define MAPSIZE 10
+
+typedef struct {
+    uint bitMap[MAPSIZE];
+    Key key[LIST_MAX];
+    ulong holdTimer;
+    char *keymap;
+    byte *rowPins;
+    byte *columnPins;
+    KeypadSize sizeKpd;
+    uint debounceTime;
+    uint holdTime;
+    bool single_key;
+    ulong startTime;
+    void (*keypadEventListener)(char);
+} Keypad;
+
+void Keypad_begin(Keypad* keypad, char *userKeymap);
+char Keypad_getKey(Keypad *keypad);
+int Keypad_findInList(Keypad* keypad, char keyChar);
+_Bool Keypad_updateList(Keypad* keypad);
+bool Keypad_getKeys(Keypad *keypad);
+KeyState Keypad_getState(Keypad *keypad);
+void Keypad_setDebounceTime(Keypad *keypad, uint debounce);
+void Keypad_setHoldTime(Keypad *keypad, uint hold);
+void Keypad_addEventListener(Keypad *keypad, void (*listener)(char));
+bool Keypad_isPressed(Keypad *keypad, char keyChar);
+char Keypad_waitForKey(Keypad *keypad);
+bool Keypad_keyStateChanged(Keypad *keypad);
+byte Keypad_numKeys(Keypad *keypad);
+
+#endif

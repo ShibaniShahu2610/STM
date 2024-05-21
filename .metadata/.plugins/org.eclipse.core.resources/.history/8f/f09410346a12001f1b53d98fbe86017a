@@ -1,0 +1,31 @@
+#ifndef KEY_H
+#define KEY_H
+
+#include <stdint.h>
+
+#define OPEN LOW
+#define CLOSED HIGH
+
+typedef uint8_t boolean;
+typedef enum { IDLE, PRESSED, HOLD, RELEASED } KeyState;
+
+extern const char NO_KEY;
+
+typedef struct {
+    char kchar;
+    int kcode;
+    KeyState kstate;
+    boolean stateChanged;
+} Key;
+
+void Key_init(Key *key);
+void Key_initChar(Key *key, char userKeyChar);
+void Key_keyUpdate(Key *key, char userKeyChar, KeyState userState, boolean userStatus);
+
+#endif
+
+/*
+|| @changelog
+|| | 1.0 2012-06-04 - Mark Stanley : Initial Release
+|| #
+*/

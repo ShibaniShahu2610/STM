@@ -1,0 +1,23 @@
+#include "Key.h"
+#include <stdbool.h>
+
+// Default constructor
+void Key_init(Key *key) {
+    key->kchar = NO_KEY;
+    key->kstate = IDLE;
+    key->stateChanged = false;
+}
+
+// Constructor
+void Key_initChar(Key *key, char userKeyChar) {
+    key->kchar = userKeyChar;
+    key->kcode = -1;
+    key->kstate = IDLE;
+    key->stateChanged = false;
+}
+
+void Key_keyUpdate(Key *key, char userKeyChar, KeyState userState, bool userStatus) {
+    key->kchar = userKeyChar;
+    key->kstate = userState;
+    key->stateChanged = userStatus;
+}

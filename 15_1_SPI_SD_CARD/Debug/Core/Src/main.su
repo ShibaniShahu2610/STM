@@ -1,0 +1,10 @@
+../Core/Src/main.c:84:6:send_uart	24	static
+../Core/Src/main.c:91:5:bufsize	24	static
+../Core/Src/main.c:99:6:bufclear	16	static
+../Core/Src/main.c:111:5:main	16	static
+../Core/Src/main.c:362:6:SystemClock_Config	128	static
+../Core/Src/main.c:415:13:MX_RTC_Init	32	static
+../Core/Src/main.c:479:13:MX_SPI2_Init	8	static
+../Core/Src/main.c:517:13:MX_USART1_UART_Init	8	static
+../Core/Src/main.c:552:13:MX_GPIO_Init	48	static
+../Core/Src/main.c:585:6:Error_Handler	8	static,ignoring_inline_asm

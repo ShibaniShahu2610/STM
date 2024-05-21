@@ -1,0 +1,17 @@
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:253:13:SPIx_Init	2
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:308:13:SPIx_Write	2
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:120:10:BSP_GetVersion	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:133:6:BSP_LED_Init	2
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:159:6:BSP_LED_On	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:172:6:BSP_LED_Off	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:185:6:BSP_LED_Toggle	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:201:6:BSP_PB_Init	3
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:238:10:BSP_PB_GetState	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:375:6:EPD_IO_Init	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:431:6:EPD_IO_WriteData	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:451:6:EPD_IO_WriteReg	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:471:10:EPD_IO_ReadData	2
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:488:6:EPD_Delay	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:498:6:EPD_ReadBusy	2
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:515:6:EPD_IO_Reset_Low	1
+D:/STM32/Workspace/PWR_STOP/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:525:6:EPD_IO_Reset_High	1

@@ -1,0 +1,4 @@
+D:/STM32/Workspace/PWR_STOP_RTC/Src/main.c:281:13:Error_Handler	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/main.c:50:5:main	216	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/main.c:295:6:HAL_RTCEx_WakeUpTimerEventCallback	0	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/main.c:306:6:HAL_SYSTICK_Callback	8	static

@@ -1,0 +1,10 @@
+14:45:08 **** Incremental Build of configuration Debug for project 15_SPI_INTERRUPT ****
+make -j8 all 
+arm-none-eabi-size  15_SPI_INTERRUPT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16048	    132	   2148	  18328	   4798	15_SPI_INTERRUPT.elf
+Finished building: default.size.stdout
+ 
+
+14:45:08 Build Finished. 0 errors, 0 warnings. (took 316ms)
+

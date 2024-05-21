@@ -1,0 +1,3 @@
+../Drivers/BSP/key.c:5:6:Key_init	1
+../Drivers/BSP/key.c:12:6:Key_initChar	1
+../Drivers/BSP/key.c:19:6:Key_keyUpdate	1

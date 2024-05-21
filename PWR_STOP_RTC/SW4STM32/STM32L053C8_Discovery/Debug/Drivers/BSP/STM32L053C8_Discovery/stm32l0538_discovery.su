@@ -1,0 +1,17 @@
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:253:13:SPIx_Init	48	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:308:13:SPIx_Write	16	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:120:10:BSP_GetVersion	0	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:133:6:BSP_LED_Init	48	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:159:6:BSP_LED_On	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:172:6:BSP_LED_Off	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:185:6:BSP_LED_Toggle	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:201:6:BSP_PB_Init	32	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:238:10:BSP_PB_GetState	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:375:6:EPD_IO_Init	64	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:431:6:EPD_IO_WriteData	16	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:451:6:EPD_IO_WriteReg	16	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:471:10:EPD_IO_ReadData	24	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:488:6:EPD_Delay	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:498:6:EPD_ReadBusy	16	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:515:6:EPD_IO_Reset_Low	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Drivers/BSP/STM32L0538-Discovery/stm32l0538_discovery.c:525:6:EPD_IO_Reset_High	8	static

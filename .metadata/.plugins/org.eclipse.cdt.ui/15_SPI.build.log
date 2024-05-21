@@ -1,0 +1,17 @@
+09:50:27 **** Incremental Build of configuration Debug for project 15_SPI ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "15_SPI.elf" @"objects.list"   -mcpu=cortex-m0plus -T"D:\STM32\Workspace\15_SPI\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="15_SPI.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 15_SPI.elf
+ 
+arm-none-eabi-size  15_SPI.elf 
+arm-none-eabi-objdump -h -S 15_SPI.elf  > "15_SPI.list"
+   text	   data	    bss	    dec	    hex	filename
+  21384	    120	   2280	  23784	   5ce8	15_SPI.elf
+Finished building: default.size.stdout
+ 
+Finished building: 15_SPI.list
+ 
+
+09:50:28 Build Finished. 0 errors, 0 warnings. (took 912ms)
+

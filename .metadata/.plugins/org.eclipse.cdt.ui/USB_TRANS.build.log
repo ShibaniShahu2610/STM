@@ -1,0 +1,10 @@
+17:00:57 **** Incremental Build of configuration Debug for project USB_TRANS ****
+make -j8 all 
+arm-none-eabi-size  USB_TRANS.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32928	    388	   6140	  39456	   9a20	USB_TRANS.elf
+Finished building: default.size.stdout
+ 
+
+17:00:58 Build Finished. 0 errors, 0 warnings. (took 374ms)
+

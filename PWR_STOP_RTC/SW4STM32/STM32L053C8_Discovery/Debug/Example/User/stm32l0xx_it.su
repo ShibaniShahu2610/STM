@@ -1,0 +1,6 @@
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_it.c:51:6:NMI_Handler	0	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_it.c:60:6:HardFault_Handler	0	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_it.c:73:6:SVC_Handler	0	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_it.c:82:6:PendSV_Handler	0	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_it.c:91:6:SysTick_Handler	8	static
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_it.c:107:6:RTC_IRQHandler	8	static

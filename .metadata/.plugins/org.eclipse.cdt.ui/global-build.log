@@ -1,0 +1,42 @@
+09:36:57 **** Incremental Build of configuration Debug for project 19_USB_MSC_1 ****
+make -j8 all 
+arm-none-eabi-size  19_USB_MSC_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36060	    316	  81540	 117916	  1cc9c	19_USB_MSC_1.elf
+Finished building: default.size.stdout
+ 
+09:37:02 **** Incremental Build of configuration Debug for project 19_USB_MSC_1 ****
+make -j8 all 
+arm-none-eabi-size  19_USB_MSC_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36060	    316	  81540	 117916	  1cc9c	19_USB_MSC_1.elf
+Finished building: default.size.stdout
+ 
+09:37:14 **** Incremental Build of configuration Debug for project 19_USB_MSC_1 ****
+make -j8 all 
+arm-none-eabi-size  19_USB_MSC_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36060	    316	  81540	 117916	  1cc9c	19_USB_MSC_1.elf
+Finished building: default.size.stdout
+ 
+09:37:21 **** Incremental Build of configuration Debug for project 19_USB_MSC_1 ****
+make -j8 all 
+arm-none-eabi-size  19_USB_MSC_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36060	    316	  81540	 117916	  1cc9c	19_USB_MSC_1.elf
+Finished building: default.size.stdout
+ 
+09:38:11 **** Incremental Build of configuration Debug for project 19_USB_MSC_1 ****
+make -j8 all 
+arm-none-eabi-size  19_USB_MSC_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36060	    316	  81540	 117916	  1cc9c	19_USB_MSC_1.elf
+Finished building: default.size.stdout
+ 
+09:40:29 **** Incremental Build of configuration Debug for project 19_USB_MSC_1 ****
+make -j8 all 
+arm-none-eabi-size  19_USB_MSC_1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  36060	    316	  81540	 117916	  1cc9c	19_USB_MSC_1.elf
+Finished building: default.size.stdout
+ 

@@ -1,0 +1,242 @@
+#include <stdint.h>
+#include <stdbool.h>
+
+// Define constants
+#define LIST_MAX 10
+#define NO_KEY '\0'
+#define CLOSED true
+#define OPEN false
+#define IDLE 0
+#define PRESSED 1
+#define HOLD 2
+#define RELEASED 3
+
+typedef struct {
+    uint8_t kstate;
+    char kchar;
+    int kcode;
+    bool stateChanged;
+} Key;
+
+typedef struct {
+    uint8_t rows;
+    uint8_t columns;
+} KeypadSize;
+
+typedef struct {
+    char *keymap;
+    uint8_t *rowPins;
+    uint8_t *columnPins;
+    KeypadSize sizeKpd;
+    Key key[LIST_MAX];
+    uint32_t startTime;
+    uint32_t debounceTime;
+    uint32_t holdTime;
+    uint32_t holdTimer;
+    bool single_key;
+    uint8_t bitMap[LIST_MAX];
+    void (*keypadEventListener)(char);
+} Keypad;
+
+void Keypad_begin(Keypad *keypad, char *userKeymap);
+char Keypad_getKey(Keypad *keypad);
+bool Keypad_getKeys(Keypad *keypad);
+bool Keypad_isPressed(Keypad *keypad, char keyChar);
+char Keypad_waitForKey(Keypad *keypad);
+KeyState Keypad_getState(Keypad *keypad);
+bool Keypad_keyStateChanged(Keypad *keypad);
+uint8_t Keypad_numKeys(Keypad *keypad);
+void Keypad_setDebounceTime(Keypad *keypad, uint32_t debounce);
+void Keypad_setHoldTime(Keypad *keypad, uint32_t hold);
+void Keypad_addEventListener(Keypad *keypad, void (*listener)(char));
+
+static void Keypad_scanKeys(Keypad *keypad);
+static bool Keypad_updateList(Keypad *keypad);
+static void Keypad_nextKeyState(Keypad *keypad, uint8_t idx, bool button);
+static int Keypad_findInListChar(Keypad *keypad, char keyChar);
+static int Keypad_findInListCode(Keypad *keypad, int keyCode);
+static void Keypad_transitionTo(Keypad *keypad, uint8_t idx, KeyState nextState);
+
+// Implementation of the member functions
+void Keypad_begin(Keypad *keypad, char *userKeymap) {
+    keypad->keymap = userKeymap;
+}
+
+char Keypad_getKey(Keypad *keypad) {
+    keypad->single_key = true;
+
+    if (Keypad_getKeys(keypad) && keypad->key[0].stateChanged && (keypad->key[0].kstate == PRESSED))
+        return keypad->key[0].kchar;
+
+    keypad->single_key = false;
+
+    return NO_KEY;
+}
+
+bool Keypad_getKeys(Keypad *keypad) {
+    bool keyActivity = false;
+
+    if ((millis() - keypad->startTime) > keypad->debounceTime) {
+        Keypad_scanKeys(keypad);
+        keyActivity = Keypad_updateList(keypad);
+        keypad->startTime = millis();
+    }
+
+    return keyActivity;
+}
+
+bool Keypad_isPressed(Keypad *keypad, char keyChar) {
+    for (uint8_t i = 0; i < LIST_MAX; i++) {
+        if (keypad->key[i].kchar == keyChar) {
+            if ((keypad->key[i].kstate == PRESSED) && keypad->key[i].stateChanged)
+                return true;
+        }
+    }
+    return false;
+}
+
+char Keypad_waitForKey(Keypad *keypad) {
+    char waitKey = NO_KEY;
+    while ((waitKey = Keypad_getKey(keypad)) == NO_KEY); // Block everything while waiting for a keypress.
+    return waitKey;
+}
+
+KeyState Keypad_getState(Keypad *keypad) {
+    return keypad->key[0].kstate;
+}
+
+bool Keypad_keyStateChanged(Keypad *keypad) {
+    return keypad->key[0].stateChanged;
+}
+
+uint8_t Keypad_numKeys(Keypad *keypad) {
+    return sizeof(keypad->key) / sizeof(Key);
+}
+
+void Keypad_setDebounceTime(Keypad *keypad, uint32_t debounce) {
+    keypad->debounceTime = (debounce < 1) ? 1 : debounce;
+}
+
+void Keypad_setHoldTime(Keypad *keypad, uint32_t hold) {
+    keypad->holdTime = hold;
+}
+
+void Keypad_addEventListener(Keypad *keypad, void (*listener)(char)) {
+    keypad->keypadEventListener = listener;
+}
+
+static void Keypad_scanKeys(Keypad *keypad) {
+    for (uint8_t r = 0; r < keypad->sizeKpd.rows; r++) {
+        pin_mode(keypad->rowPins[r], INPUT_PULLUP);
+    }
+
+    for (uint8_t c = 0; c < keypad->sizeKpd.columns; c++) {
+        pin_mode(keypad->columnPins[c], OUTPUT);
+        pin_write(keypad->columnPins[c], LOW);
+        for (uint8_t r = 0; r < keypad->sizeKpd.rows; r++) {
+            bitWrite(keypad->bitMap[r], c, !pin_read(keypad->rowPins[r]));
+        }
+        pin_write(keypad->columnPins[c], HIGH);
+        pin_mode(keypad->columnPins[c], INPUT);
+    }
+}
+
+static bool Keypad_updateList(Keypad *keypad) {
+    bool anyActivity = false;
+
+    for (uint8_t i = 0; i < LIST_MAX; i++) {
+        if (keypad->key[i].kstate == IDLE) {
+            keypad->key[i].kchar = NO_KEY;
+            keypad->key[i].kcode = -1;
+            keypad->key[i].stateChanged = false;
+        }
+    }
+
+    for (uint8_t r = 0; r < keypad->sizeKpd.rows; r++) {
+        for (uint8_t c = 0; c < keypad->sizeKpd.columns; c++) {
+            bool button = bitRead(keypad->bitMap[r], c);
+            char keyChar = keypad->keymap[r * keypad->sizeKpd.columns + c];
+            int keyCode = r * keypad->sizeKpd.columns + c;
+            int idx = Keypad_findInListCode(keypad, keyCode);
+            if (idx > -1) {
+                Keypad_nextKeyState(keypad, idx, button);
+            }
+            if ((idx == -1) && button) {
+                for (uint8_t i = 0; i < LIST_MAX; i++) {
+                    if (keypad->key[i].kchar == NO_KEY) {
+                        keypad->key[i].kchar = keyChar;
+                        keypad->key[i].kcode = keyCode;
+                        keypad->key[i].kstate = IDLE;
+                        Keypad_nextKeyState(keypad, i, button);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    for (uint8_t i = 0; i < LIST_MAX; i++) {
+        if (keypad->key[i].stateChanged) anyActivity = true;
+    }
+
+    return anyActivity;
+}
+
+static void Keypad_nextKeyState(Keypad *keypad, uint8_t idx, bool button) {
+    keypad->key[idx].stateChanged = false;
+
+    switch (keypad->key[idx].kstate) {
+        case IDLE:
+            if (button == CLOSED) {
+                Keypad_transitionTo(keypad, idx, PRESSED);
+                keypad->holdTimer = millis();
+            }
+            break;
+        case PRESSED:
+            if ((millis() - keypad->holdTimer) > keypad->holdTime)
+                Keypad_transitionTo(keypad, idx, HOLD);
+            else if (button == OPEN)
+                Keypad_transitionTo(keypad, idx, RELEASED);
+            break;
+        case HOLD:
+            if (button == OPEN)
+                Keypad_transitionTo(keypad, idx, RELEASED);
+            break;
+        case RELEASED:
+            Keypad_transitionTo(keypad, idx, IDLE);
+            break;
+    }
+}
+
+static int Keypad_findInListChar(Keypad *keypad, char keyChar) {
+    for (uint8_t i = 0; i < LIST_MAX; i++) {
+        if (keypad->key[i].kchar == keyChar) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+static int Keypad_findInListCode(Keypad *keypad, int keyCode) {
+    for (uint8_t i = 0; i < LIST_MAX; i++) {
+        if (keypad->key[i].kcode == keyCode) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+static void Keypad_transitionTo(Keypad *keypad, uint8_t idx, KeyState nextState) {
+    keypad->key[idx].kstate = nextState;
+    keypad->key[idx].stateChanged = true;
+
+    if (keypad->single_key) {
+        if ((keypad->keypadEventListener != NULL) && (idx == 0)) {
+            keypad->keypadEventListener(keypad->key[0].kchar);
+        }
+    } else {
+        if (keypad->keypadEventListener != NULL) {
+            keypad->keypadEventListener(keypad->key[idx].kchar);
+        }
+    }
+}

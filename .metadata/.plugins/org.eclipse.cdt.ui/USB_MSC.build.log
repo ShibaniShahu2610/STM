@@ -1,0 +1,17 @@
+09:26:27 **** Incremental Build of configuration Debug for project USB_MSC ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_storage_if.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L476xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_storage_if.d" -MT"USB_DEVICE/App/usbd_storage_if.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "USB_DEVICE/App/usbd_storage_if.o"
+arm-none-eabi-gcc -o "USB_MSC.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\shiba\Downloads\STM32_Program-main\STM32_Program-main\USB_MSC\STM32L476VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="USB_MSC.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: USB_MSC.elf
+ 
+arm-none-eabi-size  USB_MSC.elf 
+arm-none-eabi-objdump -h -S USB_MSC.elf  > "USB_MSC.list"
+   text	   data	    bss	    dec	    hex	filename
+  34684	    380	  81532	 116596	  1c774	USB_MSC.elf
+Finished building: default.size.stdout
+ 
+Finished building: USB_MSC.list
+ 
+
+09:26:29 Build Finished. 0 errors, 0 warnings. (took 2s.224ms)
+

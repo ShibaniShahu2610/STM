@@ -1,0 +1,17 @@
+14:53:41 **** Incremental Build of configuration Debug for project 19_USB_MSC ****
+make -j8 all 
+arm-none-eabi-gcc "../USB_DEVICE/App/usbd_storage_if.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"USB_DEVICE/App/usbd_storage_if.d" -MT"USB_DEVICE/App/usbd_storage_if.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "USB_DEVICE/App/usbd_storage_if.o"
+arm-none-eabi-gcc -o "19_USB_MSC.elf" @"objects.list"   -mcpu=cortex-m0plus -T"D:\STM32\Workspace\19_USB_MSC\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="19_USB_MSC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 19_USB_MSC.elf
+ 
+arm-none-eabi-size  19_USB_MSC.elf 
+arm-none-eabi-objdump -h -S 19_USB_MSC.elf  > "19_USB_MSC.list"
+   text	   data	    bss	    dec	    hex	filename
+  36220	   1320	   4176	  41716	   a2f4	19_USB_MSC.elf
+Finished building: default.size.stdout
+ 
+Finished building: 19_USB_MSC.list
+ 
+
+14:53:42 Build Finished. 0 errors, 0 warnings. (took 1s.221ms)
+

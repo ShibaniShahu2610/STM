@@ -1,0 +1,17 @@
+09:01:07 **** Incremental Build of configuration Debug for project 18_millis_function ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L053xx -c -I../Core/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc -I../Drivers/STM32L0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "18_millis_function.elf" @"objects.list"   -mcpu=cortex-m0plus -T"D:\STM32\Workspace\18_millis_function\STM32L053C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="18_millis_function.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 18_millis_function.elf
+ 
+arm-none-eabi-size  18_millis_function.elf 
+arm-none-eabi-objdump -h -S 18_millis_function.elf  > "18_millis_function.list"
+   text	   data	    bss	    dec	    hex	filename
+  14508	    112	   2064	  16684	   412c	18_millis_function.elf
+Finished building: default.size.stdout
+ 
+Finished building: 18_millis_function.list
+ 
+
+09:01:08 Build Finished. 0 errors, 0 warnings. (took 1s.651ms)
+

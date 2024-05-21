@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;12_I2C_DHT21/Drivers/bsp/dht21&apos; to &apos;sht21&apos;" description="Rename resource &apos;dht21&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Drivers/bsp/dht21" name="sht21" stamp="1711955264336" updateReferences="true"/>
+</session>

@@ -1,0 +1,2 @@
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_hal_msp.c:52:6:HAL_RTC_MspInit	3
+D:/STM32/Workspace/PWR_STOP_RTC/Src/stm32l0xx_hal_msp.c:111:6:HAL_RTC_MspDeInit	1

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+	</section>
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\shiba\Downloads\STM32_Program-main\STM32_Program-main\USB_MSC"/>
+			<item value="D:\USB_TRANS"/>
+			<item value="C:\Users\shiba\OneDrive\Desktop\QSPI\QSPI_Flash_memory"/>
+			<item value="D:\QSPI\QSPI_Flash"/>
+			<item value="D:\STM32\Workspace\_Document"/>
+			<item value="C:\Users\shiba\Downloads\STM32_Program-main\STM32_Program-main\temp_humi"/>
+			<item value="D:\STM32\Workspace\9_RTC_date_time"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+</section>
